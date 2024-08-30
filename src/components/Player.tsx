@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from './Player.module.css'
+import Controlbar from './Controlbar'
 
 const Player = () => {
     return (
@@ -7,10 +8,9 @@ const Player = () => {
             <div className={styles.main}>
                 main
             </div>
-            
+
             <div className={styles.controlbar}>
-                <div>controlbar</div>
-                
+                <Controlbar />
             </div>
         </div>
     )
