@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import styles from './Lyric.module.css'
-import { LyricLine } from '../../DataTypes';
+import { LyricLine } from '../DataTypes';
 
 
 type LyricProps = {
@@ -27,12 +27,7 @@ const Lyric = ({ lyricLines, currentTime }: LyricProps) => {
     const linesRef = React.useRef<HTMLDivElement>(null);
 
     useEffect(()=>{
-        if(linesRef.current && lyricLines?.length > 0) {
-            // const styles = getComputedStyle(linesRef.current);
-            // linesRef.current.offsetHeight;
-            // console.log("styles:", styles);
-            // lineHeight = parseInt(getComputedStyle(linesRef.current).height);
-            // console.log('lineHeight:', lineHeight);     // lineHeight/lyricLines.length
+        if(linesRef.current && lyricLines && lyricLines?.length > 0) {
             const linesHeight = parseInt(getComputedStyle(linesRef.current).height);
             lineHeight = linesHeight / lyricLines!.length;
         }

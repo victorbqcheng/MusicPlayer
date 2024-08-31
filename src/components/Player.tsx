@@ -41,6 +41,8 @@ const Player = () => {
                 return { time: time, timeStr: timeStr![0], line: lyric };
             });
             setLyricLines(lines);
+        } else {
+            setLyricLines(null);
         }
     };
     const onPrev = () => {
@@ -86,7 +88,7 @@ const Player = () => {
                 <div ref={filelistRef} className={styles.filelist} tabIndex={0} onBlur={onFileListBlur}>
                     <ul>
                         {songs.map((song, i) => (
-                            <SongItem key={i} song={song} onDoubleClick={() => onSongItemDoubleClick(i)} />
+                            <SongItem key={i} song={song} onDoubleClick={() => onSongItemDoubleClick(i)} isSelected={i===selectedIndex}/>
                         ))}
                     </ul>
                 </div>
@@ -103,9 +105,16 @@ const Player = () => {
     )
 }
 
-const SongItem = ({ song, onDoubleClick }: { song: Song, onDoubleClick: () => void }) => {
+type SongItemProps = {
+    song: Song,
+    onDoubleClick: () => void,
+    isSelected: boolean
+};
+
+const SongItem = ({ song, onDoubleClick, isSelected }: SongItemProps) => {
+    const style = isSelected ? 'bg-gray-100' : '';
     return (
-        <li onDoubleClick={onDoubleClick} className='py-2 px-4 hover:bg-gray-100 cursor-pointer'>
+        <li onDoubleClick={onDoubleClick} className={`py-2 px-4 hover:bg-gray-100 cursor-pointer ${style}`}>
             {song.name}
         </li>
     )
