@@ -118,9 +118,9 @@ const Controlbar = ({ song, onPrev, onNext, onTimeUpdate }: Props) => {
             <div tabIndex={0}
                 onKeyDown={handleKeyDown}
                 onWheel={onWheel}
-                className='relative flex flex-col justify-center items-center my-0 select-none md:flex md:flex-row md:space-x-8 bg-slate-300'>
+                className='relative flex flex-col justify-center items-center my-0 select-none md:flex md:flex-row md:space-x-8'>
                 {/* media controls */}
-                <div className=' flex items-center justify-around w-full md:w-auto md:space-x-4 bg-green-500'>
+                <div className=' flex items-center justify-around w-full md:w-auto md:space-x-4'>
                     <ChevronLeft onClick={onPrev} className='p-2 w-8 h-8 rounded-full bg-blue-500 text-white hover:bg-red-400' />
                     <div onClick={onPlayBtnClick} className='p-2 w-12 h-12 flex justify-center items-center rounded-full bg-blue-500  text-white hover:bg-red-400'>
                         {PlayOrPauseIcon()}
@@ -129,10 +129,10 @@ const Controlbar = ({ song, onPrev, onNext, onTimeUpdate }: Props) => {
                 </div>
 
                 {/* progress bar */}
-                <div className=' flex items-center justify-around w-full md:w-2/5 bg-pink-200'>
+                <div className=' flex items-center justify-around w-full md:w-2/5'>
                     <img className='w-20' src={music} />
-                    <div className='h-14 flex-1 mx-2 flex flex-col justify-center bg-gray-400'>
-                        <div className=' flex justify-between w-full bg-red-500'>
+                    <div className='h-14 flex-1 mx-2 flex flex-col justify-center'>
+                        <div className=' flex justify-between w-full'>
                             <div className=' whitespace-nowrap overflow-hidden overflow-ellipsis'>{song?.name || "--"}</div>
                             <div className='ml-2'>{formatTime(Math.round(progress))}/{formatTime(Math.round(duration))}</div>
                         </div>

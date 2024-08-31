@@ -9,14 +9,14 @@
 }
 
 .container .main{
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     position: relative;
     flex: 1;
     overflow: hidden;
 }
 
 .main .lyric{
-    background-color: aqua;
+    /* background-color: aqua; */
     height: 100%;
     width: 100%;
     overflow-y: auto;

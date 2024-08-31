@@ -18,5 +18,5 @@
     top: 0;
     bottom: 0;
     width: 100%;
-    background: linear-gradient(aqua 0%, aqua 40%, rgba(0, 255, 255, 0) 50%, aqua 60%, aqua 100%);
+    background: linear-gradient(rgb(255, 255, 255) 0%, rgb(255, 255, 255) 40%, rgba(255, 255, 255, 0) 50%, rgb(255, 255, 255) 60%, rgb(255, 255, 255) 100%);
 }
