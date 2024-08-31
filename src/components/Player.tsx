@@ -6,6 +6,7 @@ import { CirclePlus, Menu } from 'lucide-react'
 import { LyricLine, Song } from '../DataTypes'
 import { songs } from '../TestData'
 import { parseLyricTime } from '../utils/util'
+import Lyric from './Lyric'
 
 
 
@@ -13,7 +14,8 @@ const Player = () => {
     const filelistRef = useRef<HTMLDivElement>(null);
     const [selectedSong, setSelectedSong] = useState<Song>();
     const [selectedIndex, setSelectedIndex] = useState<number>(-1);
-
+    const [currentTime, setCurrentTime] = useState<number>(0);
+    const [lyricLines, setLyricLines] = useState<LyricLine[] | null>(null);
 
     const onOpenFileList = () => {
         if (filelistRef.current) {
@@ -32,13 +34,13 @@ const Player = () => {
         setSelectedSong(song);
         setSelectedIndex(index);
         if (song.lyric) {
-            const lines = song.lyric.split('\n').map((line, index) => {
+            const lines = song.lyric.split('\n').map((line, _index) => {
                 const timeStr = line.match(/\[\d+:\d+\.\d+\]/);
                 const time = timeStr ? parseLyricTime(timeStr[0]) : 0;
                 const lyric = line.replace(timeStr![0], '')
                 return { time: time, timeStr: timeStr![0], line: lyric };
             });
-            
+            setLyricLines(lines);
         }
     };
     const onPrev = () => {
@@ -60,7 +62,7 @@ const Player = () => {
         setSelectedSong(songs[selectedIndex + 1]);
     }
     const onTimeUpdate = (currentTime: number) => {
-        
+        setCurrentTime(currentTime);
     };
 
     return (
@@ -74,6 +76,10 @@ const Player = () => {
                         <Menu onClick={onOpenFileList} className={styles.openfilelist} />
                         <CirclePlus className={styles.addfile} />
                     </div>
+
+                    {
+                        (selectedSong ) && <Lyric currentTime={currentTime} lyricLines={lyricLines} />
+                    }
 
                 </div>
 

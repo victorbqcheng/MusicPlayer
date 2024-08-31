@@ -1,0 +1,22 @@
+
+
+.lyriccontainer{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    /* background-color: white; */
+}
+/* relative top-1/2 -translate-y-1/2 text-xl */
+.lyriclines{
+    position: relative;
+    top: 50%;
+    font-size: 1.25rem /* 20px */;
+    line-height: 3.5rem /* 28px */;
+}
+.lyricmask{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: linear-gradient(aqua 0%, aqua 40%, rgba(0, 255, 255, 0) 50%, aqua 60%, aqua 100%);
+}
