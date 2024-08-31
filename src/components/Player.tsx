@@ -11,6 +11,8 @@ import { parseLyricTime } from '../utils/util'
 
 const Player = () => {
     const filelistRef = useRef<HTMLDivElement>(null);
+    const [selectedSong, setSelectedSong] = useState<Song>();
+    const [selectedIndex, setSelectedIndex] = useState<number>(-1);
 
 
     const onOpenFileList = () => {
@@ -26,6 +28,38 @@ const Player = () => {
         }
     };
     const onSongItemDoubleClick = (index: number) => {
+        const song = songs[index];
+        setSelectedSong(song);
+        setSelectedIndex(index);
+        if (song.lyric) {
+            const lines = song.lyric.split('\n').map((line, index) => {
+                const timeStr = line.match(/\[\d+:\d+\.\d+\]/);
+                const time = timeStr ? parseLyricTime(timeStr[0]) : 0;
+                const lyric = line.replace(timeStr![0], '')
+                return { time: time, timeStr: timeStr![0], line: lyric };
+            });
+            
+        }
+    };
+    const onPrev = () => {
+        if (selectedIndex === 0) {
+            setSelectedIndex(songs.length - 1);
+            setSelectedSong(songs[songs.length - 1]);
+            return;
+        }
+        setSelectedIndex(selectedIndex - 1);
+        setSelectedSong(songs[selectedIndex - 1]);
+    };
+    const onNext = () => {
+        if (selectedIndex === songs.length - 1) {
+            setSelectedIndex(0);
+            setSelectedSong(songs[0]);
+            return;
+        }
+        setSelectedIndex(selectedIndex + 1);
+        setSelectedSong(songs[selectedIndex + 1]);
+    }
+    const onTimeUpdate = (currentTime: number) => {
         
     };
 
@@ -54,7 +88,10 @@ const Player = () => {
             </div>
 
             <div className={styles.controlbar}>
-                <Controlbar />
+                <Controlbar song={selectedSong}
+                    onPrev={onPrev}
+                    onNext={onNext}
+                    onTimeUpdate={onTimeUpdate}/>
             </div>
         </div>
     )
