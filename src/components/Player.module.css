@@ -34,6 +34,17 @@
     flex-direction: row-reverse;
 }
 
+.main .filelist{
+    background-color: burlywood;
+    overflow-y: auto;
+    height: 100%;
+    width: 0%;
+    position: absolute;
+    top:0;
+    transition: width 0.5s;
+    user-select: none;
+}
+
 .menu .openfilelist, .addfile{
     cursor: pointer;
     margin-left: 10px;
