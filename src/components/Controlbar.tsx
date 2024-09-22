@@ -29,10 +29,10 @@ const Controlbar = ({ song, onPrev, onNext, onTimeUpdate }: Props) => {
     }, []);
 
     useEffect(() => {
-        if (song) {
-            audioRef.current?.pause();
-            audioRef.current!.src = song.url;
-            audioRef.current?.play();
+        if (song && audioRef.current) {
+            audioRef.current.pause();
+            audioRef.current.src = song.url;
+            audioRef.current.play();
         }
     }, [song]);
     // Keyboard left and right arrow keys control playback progress
