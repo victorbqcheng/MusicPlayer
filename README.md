@@ -15,7 +15,7 @@ Welcome to the MusicPlayer project! This is a simple yet powerful music player a
 
 1. Clone this repository to your local machine:
   ```bash
-  git clone https://github.com/yourusername/MusicPlayer.git
+  git clone https://github.com/victorbqcheng/MusicPlayer.git
   ```
 2. Navigate to the project directory:
   ```bash
@@ -32,7 +32,7 @@ Welcome to the MusicPlayer project! This is a simple yet powerful music player a
   ```bash
   npm start
   ```
-2. Open your browser and visit `http://localhost:3000`.
+2. Open your browser and visit `http://localhost:5173`.
 
 ## Contributing
 
@@ -52,7 +52,7 @@ This project is licensed under the MIT License. For more information, please ref
 
 If you have any questions or suggestions, please contact us via:
 
-- Email: support@musicplayer.com
-- GitHub Issues: [https://github.com/yourusername/MusicPlayer/issues](https://github.com/yourusername/MusicPlayer/issues)
+- Email: victoratnz@outlook.com
+- GitHub Issues: [https://github.com/victorbqcheng/MusicPlayer/issues](https://github.com/victorbqcheng/MusicPlayer/issues)
 
 Thank you for using and contributing!
